@@ -56,15 +56,55 @@
 		64B5B9001F4A7B020068B33A /* breakpoint */ = {
 			isa = PBXGroup;
 			children = (
+				64B5B9191F4A7BAF0068B33A /* Services */,
+				64B5B9181F4A7B850068B33A /* Extensions */,
+				64B5B9171F4A7B6F0068B33A /* Model */,
+				64B5B9161F4A7B680068B33A /* View */,
+				64B5B9151F4A7B4F0068B33A /* Controller */,
 				64B5B9011F4A7B020068B33A /* AppDelegate.swift */,
-				64B5B9031F4A7B020068B33A /* FirstViewController.swift */,
-				64B5B9051F4A7B020068B33A /* SecondViewController.swift */,
 				64B5B9071F4A7B020068B33A /* Main.storyboard */,
 				64B5B90A1F4A7B020068B33A /* Assets.xcassets */,
 				64B5B90C1F4A7B020068B33A /* LaunchScreen.storyboard */,
 				64B5B90F1F4A7B020068B33A /* Info.plist */,
 			);
 			path = breakpoint;
+			sourceTree = "<group>";
+		};
+		64B5B9151F4A7B4F0068B33A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				64B5B9031F4A7B020068B33A /* FirstViewController.swift */,
+				64B5B9051F4A7B020068B33A /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		64B5B9161F4A7B680068B33A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		64B5B9171F4A7B6F0068B33A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		64B5B9181F4A7B850068B33A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		64B5B9191F4A7BAF0068B33A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 938M7XW9DC;
 				INFOPLIST_FILE = breakpoint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aure.breakpoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -293,6 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 938M7XW9DC;
 				INFOPLIST_FILE = breakpoint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aure.breakpoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
