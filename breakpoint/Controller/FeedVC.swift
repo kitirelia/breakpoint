@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class FeedVC: UIViewController {
     var messageArray:[Message] = [Message]()
@@ -20,9 +21,12 @@ class FeedVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        SVProgressHUD.show(withStatus: "Loading..")
         DataService.instance.getAllFeedMessages { (fireBaseMessages) in
             self.messageArray = fireBaseMessages
             self.tableView.reloadData()
+            SVProgressHUD.dismiss(withDelay: 0.5)
         }
     }
     

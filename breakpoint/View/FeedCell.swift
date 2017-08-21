@@ -10,24 +10,16 @@ import UIKit
 
 class FeedCell: UITableViewCell {
 
-    var content:String!
-    var senderId:String!
-    var imagePath:UIImage!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var contentLbl: UILabel!
 
     func configureCell(content:String,senderId:String,image:UIImage){
-        self.content = content
-        self.senderId = senderId
-        self.imagePath = image
+        self.contentLbl.text = content
+        self.emailLbl.text = senderId
+        self.profileImage.image = image
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+  
 
 }
