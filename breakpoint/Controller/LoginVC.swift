@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginVC: UIViewController {
 
@@ -23,27 +24,38 @@ class LoginVC: UIViewController {
         guard  emailTxt.text != "",emailTxt.text != nil else{return}
         guard  passwordTxt.text != "",passwordTxt.text != nil else{return}
         
+        SVProgressHUD.show(withStatus: "Loging in")
         AuthService.instance.loginUser(withEmail: emailTxt.text!, andPassword: passwordTxt.text!) { (success, error) in
             if success{
+                SVProgressHUD.showSuccess(withStatus: "Login Success")
                 print("login success")
-                self.dismiss(animated: true, completion: nil)
+                SVProgressHUD.dismiss(withDelay: 0.5, completion: {
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
             }else{
                 print("login Error!")
+                SVProgressHUD.showError(withStatus: "\(error?.localizedDescription)")
                 debugPrint(error as Any)
             }
-            
+            SVProgressHUD.show(withStatus: "Registering..")
             AuthService.instance.registerUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, userCreationComplete: { (success, error) in
                 if success{
                     AuthService.instance.loginUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, loginComplete: { (loginSuccess, error) in
                         if loginSuccess{
                             print("REGISTER AND LOGIN SUCCESS")
-                            self.dismiss(animated: true, completion: nil)
+                            SVProgressHUD.showSuccess(withStatus: "Register Success")
+                            SVProgressHUD.dismiss(withDelay: 0.5, completion: {
+                                self.dismiss(animated: true, completion: nil)
+                            })
                         }else{
+                            SVProgressHUD.showError(withStatus: "\(error?.localizedDescription)")
                             debugPrint(error as Any)
                         }
                     })
                 }else{
                     print("register Error!")
+                    SVProgressHUD.showError(withStatus: "\(error?.localizedDescription)")
                     debugPrint(error as Any)
                 }
             })

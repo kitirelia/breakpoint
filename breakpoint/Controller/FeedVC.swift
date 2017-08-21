@@ -22,9 +22,9 @@ class FeedVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        SVProgressHUD.show(withStatus: "Loading..")
+        SVProgressHUD.show(withStatus: "Loading Feed")
         DataService.instance.getAllFeedMessages { (fireBaseMessages) in
-            self.messageArray = fireBaseMessages
+            self.messageArray = fireBaseMessages.reversed()
             self.tableView.reloadData()
             SVProgressHUD.dismiss(withDelay: 0.5)
         }
@@ -40,10 +40,15 @@ extension FeedVC:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell else{ return UITableViewCell()}
         
-        let image = UIImage(named:"defaultProfileImage")
-        let content = messageArray[indexPath.row].content
-        let senderId = messageArray[indexPath.row].senderId
-        cell.configureCell(content: content, senderId: senderId, image: image!)
+        
+        DataService.instance.getUsername(forUID: messageArray[indexPath.row].senderId) { (returnUsername) in
+            let image = UIImage(named:"defaultProfileImage")
+            let content = self.messageArray[indexPath.row].content
+            let senderId = returnUsername
+            cell.configureCell(content: content, senderId: senderId, image: image!)
+        }
+        
+        
         
         return cell
     }
