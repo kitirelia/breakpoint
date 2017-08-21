@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class CreatePostVC: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
@@ -18,20 +19,26 @@ class CreatePostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
-        // Do any additional setup after loading the view.
+        sendBtn.bindToKeyboard()
     }
     @IBAction func sendBtnPressed(_ sender: Any) {
         guard textView.text != nil, textView.text != "what in your mind?",textView.text != "" else {return}
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
+        SVProgressHUD.show(withStatus: "Posting")
         sendBtn.isEnabled = false
         DataService.instance.uploadPost(withMessage: textView.text, forUID: uid, withGroupKey: nil) { (success) in
             if success{
-                self.sendBtn.isEnabled = true
-                self.dismiss(animated: true, completion: nil)
+                SVProgressHUD.showSuccess(withStatus: "Posted!!")
+                SVProgressHUD.dismiss(withDelay: 2, completion: {
+                    self.sendBtn.isEnabled = true
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
             }else{
                 self.sendBtn.isEnabled = true
+                SVProgressHUD.showError(withStatus: "Post Failed")
                 debugPrint("Post Error")
             }
         }
