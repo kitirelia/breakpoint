@@ -15,6 +15,7 @@
 		640F1E221F4A917A00725F86 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E211F4A917A00725F86 /* ShadowView.swift */; };
 		640F1E241F4A93D900725F86 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E231F4A93D900725F86 /* AuthService.swift */; };
 		640F1E281F4ABE5D00725F86 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E271F4ABE5D00725F86 /* MeVC.swift */; };
+		640F1E2A1F4AC41800725F86 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E291F4AC41800725F86 /* CreatePostVC.swift */; };
 		64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9011F4A7B020068B33A /* AppDelegate.swift */; };
 		64B5B9041F4A7B020068B33A /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9031F4A7B020068B33A /* FeedVC.swift */; };
 		64B5B9061F4A7B020068B33A /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9051F4A7B020068B33A /* GroupsVC.swift */; };
@@ -33,6 +34,7 @@
 		640F1E211F4A917A00725F86 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		640F1E231F4A93D900725F86 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		640F1E271F4ABE5D00725F86 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		640F1E291F4AC41800725F86 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		64B5B8FE1F4A7B020068B33A /* breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B5B9011F4A7B020068B33A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64B5B9031F4A7B020068B33A /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				640F1E1A1F4A8CB700725F86 /* AuthVC.swift */,
 				640F1E1C1F4A8CCE00725F86 /* LoginVC.swift */,
 				640F1E271F4ABE5D00725F86 /* MeVC.swift */,
+				640F1E291F4AC41800725F86 /* CreatePostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -275,6 +279,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -297,6 +302,7 @@
 				640F1E241F4A93D900725F86 /* AuthService.swift in Sources */,
 				640F1E1D1F4A8CCE00725F86 /* LoginVC.swift in Sources */,
 				640F1E221F4A917A00725F86 /* ShadowView.swift in Sources */,
+				640F1E2A1F4AC41800725F86 /* CreatePostVC.swift in Sources */,
 				64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */,
 				64B5B9041F4A7B020068B33A /* FeedVC.swift in Sources */,
 				640F1E191F4A7ED100725F86 /* DataService.swift in Sources */,
