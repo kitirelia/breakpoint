@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640F1E191F4A7ED100725F86 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E181F4A7ED100725F86 /* DataService.swift */; };
 		64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9011F4A7B020068B33A /* AppDelegate.swift */; };
 		64B5B9041F4A7B020068B33A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9031F4A7B020068B33A /* FirstViewController.swift */; };
 		64B5B9061F4A7B020068B33A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9051F4A7B020068B33A /* SecondViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		58E29367159C3EC820A4EBC7 /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		640F1E181F4A7ED100725F86 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		64B5B8FE1F4A7B020068B33A /* breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B5B9011F4A7B020068B33A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64B5B9031F4A7B020068B33A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		64B5B9191F4A7BAF0068B33A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				640F1E181F4A7ED100725F86 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				64B5B9061F4A7B020068B33A /* SecondViewController.swift in Sources */,
 				64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */,
 				64B5B9041F4A7B020068B33A /* FirstViewController.swift in Sources */,
+				640F1E191F4A7ED100725F86 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
