@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		640F1E191F4A7ED100725F86 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E181F4A7ED100725F86 /* DataService.swift */; };
+		640F1E1B1F4A8CB700725F86 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E1A1F4A8CB700725F86 /* AuthVC.swift */; };
+		640F1E1D1F4A8CCE00725F86 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E1C1F4A8CCE00725F86 /* LoginVC.swift */; };
+		640F1E1F1F4A8D7900725F86 /* insetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E1E1F4A8D7900725F86 /* insetTextField.swift */; };
+		640F1E201F4A8F1200725F86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64B5B91A1F4A7CFD0068B33A /* GoogleService-Info.plist */; };
+		640F1E221F4A917A00725F86 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E211F4A917A00725F86 /* ShadowView.swift */; };
 		64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9011F4A7B020068B33A /* AppDelegate.swift */; };
 		64B5B9041F4A7B020068B33A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9031F4A7B020068B33A /* FirstViewController.swift */; };
 		64B5B9061F4A7B020068B33A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B5B9051F4A7B020068B33A /* SecondViewController.swift */; };
@@ -20,6 +25,10 @@
 /* Begin PBXFileReference section */
 		58E29367159C3EC820A4EBC7 /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		640F1E181F4A7ED100725F86 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		640F1E1A1F4A8CB700725F86 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		640F1E1C1F4A8CCE00725F86 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		640F1E1E1F4A8D7900725F86 /* insetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insetTextField.swift; sourceTree = "<group>"; };
+		640F1E211F4A917A00725F86 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		64B5B8FE1F4A7B020068B33A /* breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B5B9011F4A7B020068B33A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64B5B9031F4A7B020068B33A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +95,8 @@
 			children = (
 				64B5B9031F4A7B020068B33A /* FirstViewController.swift */,
 				64B5B9051F4A7B020068B33A /* SecondViewController.swift */,
+				640F1E1A1F4A8CB700725F86 /* AuthVC.swift */,
+				640F1E1C1F4A8CCE00725F86 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -93,6 +104,8 @@
 		64B5B9161F4A7B680068B33A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				640F1E1E1F4A8D7900725F86 /* insetTextField.swift */,
+				640F1E211F4A917A00725F86 /* ShadowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64B5B90E1F4A7B020068B33A /* LaunchScreen.storyboard in Resources */,
+				640F1E201F4A8F1200725F86 /* GoogleService-Info.plist in Resources */,
 				64B5B90B1F4A7B020068B33A /* Assets.xcassets in Resources */,
 				64B5B9091F4A7B020068B33A /* Main.storyboard in Resources */,
 			);
@@ -270,7 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640F1E1B1F4A8CB700725F86 /* AuthVC.swift in Sources */,
+				640F1E1F1F4A8D7900725F86 /* insetTextField.swift in Sources */,
 				64B5B9061F4A7B020068B33A /* SecondViewController.swift in Sources */,
+				640F1E1D1F4A8CCE00725F86 /* LoginVC.swift in Sources */,
+				640F1E221F4A917A00725F86 /* ShadowView.swift in Sources */,
 				64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */,
 				64B5B9041F4A7B020068B33A /* FirstViewController.swift in Sources */,
 				640F1E191F4A7ED100725F86 /* DataService.swift in Sources */,
