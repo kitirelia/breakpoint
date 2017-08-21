@@ -16,5 +16,13 @@ class AuthVC: UIViewController {
        
     }
 
-   
+    @IBAction func loginWithEmailPressed(_ sender: Any) {
+        let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+        present(loginVC!, animated: true, completion: nil)
+    }
+    @IBAction func googleSignInBtnPressed(_ sender: Any) {
+    }
+    @IBAction func facebookSignInBtnPressed(_ sender: Any) {
+    }
+    
 }
