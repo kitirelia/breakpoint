@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupVC: UIViewController {
 
@@ -38,6 +39,19 @@ class CreateGroupVC: UIViewController {
     }
     
     @IBAction func doneBtnPressed(_ sender: Any) {
+        guard titleTxt.text != "",descriptionTxt.text != "" else{return}
+        DataService.instance.getIds(forUsername: choosenUserArray) { (idsArray) in
+            var usersIds = idsArray
+            usersIds.append((Auth.auth().currentUser?.uid)!)
+            DataService.instance.createGroup(title: self.titleTxt.text!, description: self.descriptionTxt.text!, ids: usersIds, handler: { (success) in
+                if success{
+                    self.dismiss(animated: true, completion: nil)
+                }else{
+                    debugPrint("Create group failed")
+                }
+            })
+            
+        }
     }
 }
 
@@ -58,8 +72,6 @@ extension CreateGroupVC:UITableViewDataSource{
         }else{
             cell.configureCell(email:emailArray[indexPath.row], imageProfile: profileImage!, isSelected: false)
         }
-        
-        
         return cell
     }
     
