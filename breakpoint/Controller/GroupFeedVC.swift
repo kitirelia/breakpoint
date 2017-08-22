@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupFeddVC: UIViewController {
+class GroupFeedVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupTitleLbl: UILabel!
@@ -16,6 +16,21 @@ class GroupFeddVC: UIViewController {
     @IBOutlet weak var sendBtnView: UIView!
     @IBOutlet weak var messageTxt: insetTextField!
     @IBOutlet weak var sendBtn: UIButton!
+    
+    var group:Group?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupTitleLbl.text = group?.groupTitle
+        DataService.instance.getEmailsFor(group: group!) { (returnEmailArray) in
+            self.membersLbl.text = returnEmailArray.joined(separator: ",")
+        }
+        
+    }
+    
+    func initGroupData(group:Group){
+        self.group = group
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +47,7 @@ class GroupFeddVC: UIViewController {
     
 }
 
-extension GroupFeddVC:UITableViewDelegate,UITableViewDataSource{
+extension GroupFeedVC:UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
