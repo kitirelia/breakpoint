@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6400FBFD1F4BE9B20059D85A /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FBFC1F4BE9B20059D85A /* GroupCell.swift */; };
+		6400FBFF1F4BEF5E0059D85A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FBFE1F4BEF5E0059D85A /* Group.swift */; };
+		6400FC011F4C061F0059D85A /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FC001F4C061F0059D85A /* GroupFeedCell.swift */; };
+		6400FC031F4C07020059D85A /* GroupFeddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400FC021F4C07020059D85A /* GroupFeddVC.swift */; };
 		640F1E191F4A7ED100725F86 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E181F4A7ED100725F86 /* DataService.swift */; };
 		640F1E1B1F4A8CB700725F86 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E1A1F4A8CB700725F86 /* AuthVC.swift */; };
 		640F1E1D1F4A8CCE00725F86 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F1E1C1F4A8CCE00725F86 /* LoginVC.swift */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		58E29367159C3EC820A4EBC7 /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6400FBFC1F4BE9B20059D85A /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		6400FBFE1F4BEF5E0059D85A /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		6400FC001F4C061F0059D85A /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
+		6400FC021F4C07020059D85A /* GroupFeddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeddVC.swift; sourceTree = "<group>"; };
 		640F1E181F4A7ED100725F86 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		640F1E1A1F4A8CB700725F86 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		640F1E1C1F4A8CCE00725F86 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -116,6 +124,7 @@
 				640F1E271F4ABE5D00725F86 /* MeVC.swift */,
 				640F1E291F4AC41800725F86 /* CreatePostVC.swift */,
 				6422BF581F4B141400E3E3F8 /* CreateGroupVC.swift */,
+				6400FC021F4C07020059D85A /* GroupFeddVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,6 +136,8 @@
 				640F1E211F4A917A00725F86 /* ShadowView.swift */,
 				647930D11F4AD7340084BEF5 /* FeedCell.swift */,
 				6422BF5A1F4B1B5F00E3E3F8 /* UserCell.swift */,
+				6400FBFC1F4BE9B20059D85A /* GroupCell.swift */,
+				6400FC001F4C061F0059D85A /* GroupFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				647930CF1F4AD2290084BEF5 /* Message.swift */,
+				6400FBFE1F4BEF5E0059D85A /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,17 +325,21 @@
 				647930CE1F4ACDC10084BEF5 /* UIViewExt.swift in Sources */,
 				640F1E281F4ABE5D00725F86 /* MeVC.swift in Sources */,
 				640F1E1B1F4A8CB700725F86 /* AuthVC.swift in Sources */,
+				6400FBFD1F4BE9B20059D85A /* GroupCell.swift in Sources */,
 				640F1E1F1F4A8D7900725F86 /* insetTextField.swift in Sources */,
 				64B5B9061F4A7B020068B33A /* GroupsVC.swift in Sources */,
+				6400FC011F4C061F0059D85A /* GroupFeedCell.swift in Sources */,
 				640F1E241F4A93D900725F86 /* AuthService.swift in Sources */,
 				640F1E1D1F4A8CCE00725F86 /* LoginVC.swift in Sources */,
 				640F1E221F4A917A00725F86 /* ShadowView.swift in Sources */,
+				6400FBFF1F4BEF5E0059D85A /* Group.swift in Sources */,
 				6422BF5B1F4B1B5F00E3E3F8 /* UserCell.swift in Sources */,
 				6422BF591F4B141400E3E3F8 /* CreateGroupVC.swift in Sources */,
 				640F1E2A1F4AC41800725F86 /* CreatePostVC.swift in Sources */,
 				647930D01F4AD2290084BEF5 /* Message.swift in Sources */,
 				64B5B9021F4A7B020068B33A /* AppDelegate.swift in Sources */,
 				64B5B9041F4A7B020068B33A /* FeedVC.swift in Sources */,
+				6400FC031F4C07020059D85A /* GroupFeddVC.swift in Sources */,
 				640F1E191F4A7ED100725F86 /* DataService.swift in Sources */,
 				647930D21F4AD7340084BEF5 /* FeedCell.swift in Sources */,
 			);
