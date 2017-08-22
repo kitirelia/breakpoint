@@ -17,6 +17,7 @@ class CreateGroupVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupMemberLbl: UILabel!
     var emailArray = [String]()
+    var choosenUserArray = [String]()
     
     
     override func viewDidLoad() {
@@ -26,18 +27,11 @@ class CreateGroupVC: UIViewController {
         emailSearchTxt.delegate = self
         emailSearchTxt.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-
-    @objc func textFieldDidChange(){
-        if emailSearchTxt.text == ""{
-            emailArray = []
-            tableView.reloadData()
-        }else{
-            DataService.instance.getEmail(forSeachQuery: emailSearchTxt.text!, handler: { (returnemailArray) in
-                self.emailArray = returnemailArray
-                self.tableView.reloadData()
-            })
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        doneBtn.isHidden = true
     }
+    
     
     @IBAction func closeBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -58,11 +52,13 @@ extension CreateGroupVC:UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell",for:indexPath) as? UserCell else {
             return UITableViewCell()
         }
-        
-        //let user = emailArray[indexPath.row]
         let profileImage = UIImage(named:"defaultProfileImage")
+        if choosenUserArray.contains(emailArray[indexPath.row]){
+            cell.configureCell(email:emailArray[indexPath.row], imageProfile: profileImage!, isSelected: true)
+        }else{
+            cell.configureCell(email:emailArray[indexPath.row], imageProfile: profileImage!, isSelected: false)
+        }
         
-        cell.configureCell(email:emailArray[indexPath.row], imageProfile: profileImage!, isSelected: true)
         
         return cell
     }
@@ -70,16 +66,37 @@ extension CreateGroupVC:UITableViewDataSource{
 }
 
 extension CreateGroupVC:UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard  let cell = tableView.cellForRow(at: indexPath) as? UserCell else {return}
+        if !choosenUserArray.contains(cell.emailLbl.text!){
+            choosenUserArray.append(cell.emailLbl.text!)
+            groupMemberLbl.text = choosenUserArray.joined(separator: ",")
+            doneBtn.isHidden = false
+        }else{
+            choosenUserArray = choosenUserArray.filter({$0 != cell.emailLbl.text!})
+            if choosenUserArray.count >= 1{
+                groupMemberLbl.text = choosenUserArray.joined(separator: ",")
+            }else{
+                groupMemberLbl.text = "add people to your group"
+                doneBtn.isHidden = true
+            }
+        }
+    }
 }
 
 extension CreateGroupVC:UITextFieldDelegate{
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        guard  emailSearchTxt.text != nil, emailSearchTxt.text != "" else {return}
-//        DataService.instance.getEmail(forSeachQuery: query) { (<#[String]#>) in
-//            <#code#>
-//        }
-//    }
+    @objc func textFieldDidChange(){
+        if emailSearchTxt.text == ""{
+            emailArray = []
+            tableView.reloadData()
+        }else{
+            DataService.instance.getEmail(forSeachQuery: emailSearchTxt.text!, handler: { (returnemailArray) in
+                self.emailArray = returnemailArray
+                self.tableView.reloadData()
+            })
+        }
+    }
 }
 
 
