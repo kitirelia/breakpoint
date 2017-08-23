@@ -10,4 +10,6 @@ target 'breakpoint' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'SVProgressHUD'
+  pod 'Alamofire'
+  pod 'AlamofireImage', '~> 3.2'
 end

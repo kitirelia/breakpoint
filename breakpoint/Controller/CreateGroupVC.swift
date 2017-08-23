@@ -18,6 +18,7 @@ class CreateGroupVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupMemberLbl: UILabel!
     var emailArray = [String]()
+    var emailListArray = [OtherUser]()
     var choosenUserArray = [String]()
     
     
@@ -60,17 +61,17 @@ extension CreateGroupVC:UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return emailArray.count
+        return emailListArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell",for:indexPath) as? UserCell else {
             return UITableViewCell()
         }
-        let profileImage = UIImage(named:"defaultProfileImage")
-        if choosenUserArray.contains(emailArray[indexPath.row]){
-            cell.configureCell(email:emailArray[indexPath.row], imageProfile: profileImage!, isSelected: true)
+        //let profileImage = UIImage(named:"defaultProfileImage")
+        if choosenUserArray.contains(emailListArray[indexPath.row].email){
+            cell.configureCell(email:emailListArray[indexPath.row].email, imageProfile: emailListArray[indexPath.row].profilePicture!, isSelected: true)
         }else{
-            cell.configureCell(email:emailArray[indexPath.row], imageProfile: profileImage!, isSelected: false)
+            cell.configureCell(email:emailListArray[indexPath.row].email, imageProfile: emailListArray[indexPath.row].profilePicture!, isSelected: false)
         }
         return cell
     }
@@ -103,10 +104,15 @@ extension CreateGroupVC:UITextFieldDelegate{
             emailArray = []
             tableView.reloadData()
         }else{
-            DataService.instance.getEmail(forSeachQuery: emailSearchTxt.text!, handler: { (returnemailArray) in
-                self.emailArray = returnemailArray
+            DataService.instance.getEmailList(query: emailSearchTxt.text!, handler: { (returnEmailList) in
+                print("email list succes")
+                self.emailListArray = returnEmailList
                 self.tableView.reloadData()
             })
+//            DataService.instance.getEmail(forSeachQuery: emailSearchTxt.text!, handler: { (returnemailArray) in
+//                self.emailArray = returnemailArray
+//                self.tableView.reloadData()
+//            })
         }
     }
 }

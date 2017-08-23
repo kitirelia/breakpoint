@@ -8,6 +8,8 @@
 
 import Foundation
 import Firebase
+import Alamofire
+import AlamofireImage
 
 let DB_BASE = Database.database().reference()
 
@@ -18,6 +20,7 @@ class DataService{
     private var _REF_USERS = DB_BASE.child("users")
     private var _REF_GROUPS = DB_BASE.child("groups")
     private var _REF_FEED = DB_BASE.child("feed")
+    public private(set) var otherUserList = [OtherUser]()
     
     var REF_BASE:DatabaseReference{
         return _REF_BASE
@@ -86,6 +89,52 @@ class DataService{
         }
     }
     
+    
+    func getEmailList(query:String,handler:@escaping (_ emailListArray:[OtherUser])->()){
+        var otherUserList = [OtherUser]()
+        var imageUrl = [String]()
+        REF_USERS.observe(.value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            for user in userSnapshot{
+                let profile_picture = user.childSnapshot(forPath: "profile_picture").value as! String
+                let email = user.childSnapshot(forPath: "email").value as! String
+                
+                if email.contains(query) == true && email != Auth.auth().currentUser?.email{
+                    imageUrl.append(profile_picture)
+                    
+                    let otherUser = OtherUser(email: email, id: user.key, path: profile_picture,image:UIImage())
+                    otherUserList.append(otherUser)
+                }
+            }
+            self.loadProfileImage(userList: otherUserList, handler: { (success) in
+                if success{
+                    handler(otherUserList)
+                }
+            })
+        }
+    }
+    
+    func loadProfileImage(userList:[OtherUser],handler:@escaping (_ sucess:Bool)->()){
+        var imageLoaded:Int = 0
+        for var item in userList{
+            Alamofire.request(item.imagePath).responseImage(completionHandler: { (response) in
+                if let image = response.result.value {
+                    item.updateImage(image: image)
+                    print("\(imageLoaded),\(userList.count)")
+                    
+                }else{
+                    let image2 = UIImage(named:"defaultProfileImage")
+                    item.updateImage(image: image2!)
+                    print("fail at \(imageLoaded)")
+                }
+                imageLoaded += 1
+                if imageLoaded == userList.count{
+                    handler(true)
+                }
+                
+            })
+        }
+    }
     
     func getEmail(forSeachQuery query:String, handler: @escaping (_ emailArray:[String])->()){
         var emailArray = [String]()

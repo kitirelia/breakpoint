@@ -28,18 +28,18 @@ class LoginVC: UIViewController {
         AuthService.instance.loginUser(withEmail: emailTxt.text!, andPassword: passwordTxt.text!) { (success, error) in
             if success{
                 SVProgressHUD.showSuccess(withStatus: "Login Success")
-                print("login success")
+                //print("login success")
                 SVProgressHUD.dismiss(withDelay: 0.5, completion: {
                     self.dismiss(animated: true, completion: nil)
                 })
                 
             }else{
-                print("login Error!")
+                //print("login Error!")
                 SVProgressHUD.showError(withStatus: "\(error?.localizedDescription)")
                 debugPrint(error as Any)
             }
             SVProgressHUD.show(withStatus: "Registering..")
-            AuthService.instance.registerUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, userCreationComplete: { (success, error) in
+            AuthService.instance.registerUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!,imageProfile:"image.jpg", userCreationComplete: { (success, error) in
                 if success{
                     AuthService.instance.loginUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, loginComplete: { (loginSuccess, error) in
                         if loginSuccess{

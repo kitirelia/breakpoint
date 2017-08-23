@@ -9,16 +9,18 @@
 import Foundation
 import Firebase
 
+
 class AuthService {
     static let instance = AuthService()
     
-    func registerUser(withEmail email:String,andPassword password:String ,userCreationComplete:@escaping (_ status:Bool,_ error:Error?)->()){
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+    func registerUser(withEmail email:String,andPassword password:String,imageProfile:String ,userCreationComplete:@escaping (_ status:Bool,_ error:Error?)->()){
+        let lowEmail = email.lowercased()
+        Auth.auth().createUser(withEmail: lowEmail, password: password) { (user, error) in
             guard let user = user else {
                 userCreationComplete(false, error)
                 return
             }
-            let userData = ["provider":user.providerID,"email":user.email]
+            let userData = ["provider":user.providerID,"email":user.email,"profile_picture":imageProfile]
             
             DataService.instance.createDBUser(uid: user.uid, userData: userData)
             userCreationComplete(true, nil)
