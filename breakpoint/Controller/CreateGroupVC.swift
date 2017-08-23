@@ -101,18 +101,14 @@ extension CreateGroupVC:UITableViewDelegate{
 extension CreateGroupVC:UITextFieldDelegate{
     @objc func textFieldDidChange(){
         if emailSearchTxt.text == ""{
-            emailArray = []
+            emailListArray = []
             tableView.reloadData()
         }else{
             DataService.instance.getEmailList(query: emailSearchTxt.text!, handler: { (returnEmailList) in
-                print("email list succes")
                 self.emailListArray = returnEmailList
                 self.tableView.reloadData()
             })
-//            DataService.instance.getEmail(forSeachQuery: emailSearchTxt.text!, handler: { (returnemailArray) in
-//                self.emailArray = returnemailArray
-//                self.tableView.reloadData()
-//            })
+
         }
     }
 }

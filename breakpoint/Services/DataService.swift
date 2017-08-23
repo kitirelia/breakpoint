@@ -120,18 +120,18 @@ class DataService{
             Alamofire.request(item.imagePath).responseImage(completionHandler: { (response) in
                 if let image = response.result.value {
                     item.updateImage(image: image)
-                    print("\(imageLoaded),\(userList.count)")
+                   // print("\(imageLoaded),\(userList.count)")
                     
                 }else{
+                    debugPrint(response.result)
+                    print("\(imageLoaded) fail :\(item.imagePath)")
                     let image2 = UIImage(named:"defaultProfileImage")
                     item.updateImage(image: image2!)
-                    print("fail at \(imageLoaded)")
                 }
                 imageLoaded += 1
                 if imageLoaded == userList.count{
                     handler(true)
                 }
-                
             })
         }
     }
